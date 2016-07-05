@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BUKMessageBar_Example' do
+  pod 'BUKMessageBar', :path => '../'
+
+  target 'BUKMessageBar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
