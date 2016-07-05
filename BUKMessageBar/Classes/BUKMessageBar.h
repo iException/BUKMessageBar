@@ -36,6 +36,9 @@ typedef NS_ENUM(NSInteger, BUKMessageBarAnimationDirection) {
 @property (nonatomic, strong) void (^tapHandler)(BUKMessageBar *bar);
 @property (nonatomic, assign) BOOL expanded;
 @property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) BOOL enableDismissMask;
+@property (nonatomic, assign) BOOL enableSmartY;
+@property (nonatomic, assign) CGFloat startY;
 
 - (instancetype)initWithTitle:(NSString *)title 
                        detail:(NSString *)detail;

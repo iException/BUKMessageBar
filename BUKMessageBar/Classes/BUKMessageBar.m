@@ -9,6 +9,7 @@
 #import "BUKMessageBar.h"
 #import "UIColor+bukmbmhex.h"
 #import "UIControl+Blockskit.h"
+#import "NSTimer+Blockskit.h"
 #import "UIGestureRecognizer+Blockskit.h"
 
 #define kStatusBarHeight 20.0
@@ -23,6 +24,11 @@
 #define kExpandButtonTitle @"展开"
 #define kFoldButtonTitle @"折叠"
 #define kDefaultDuration 0.25
+#define kDefaultLast 3.0
+#define kDismissViewAlpha 0.3
+
+#define kDefaultAnimationDirection BUKMessageBarAnimationDirectionDirectionZ
+#define kDefaultType BUKMessageBarTypeLight
 
 @implementation UIWindow (BUKMessageBarManagerMainWindow)
 
@@ -46,14 +52,17 @@
 @property (nonatomic, strong) UILabel *detailLabel;
 @property (nonatomic, strong) UIView *titleContainerView;
 @property (nonatomic, strong) UIView *buttonsContainerView;
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) UIView *detailContentView;
+@property (nonatomic, strong) UIButton *dismissBackgroundButton;
 @property (nonatomic, strong) CAShapeLayer *titleBackgroundLayer;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UIButton *toggleButton;
 @property (nonatomic, strong) UIButton *dismissButton;
+@property (nonatomic, strong) NSTimer *dismissTimer;
 @property (nonatomic, assign) CGFloat expandHeight;
 @property (nonatomic, assign) CGFloat foldHeight;
 @property (nonatomic, assign) CGPoint previousPanPoint;
+@property (nonatomic, assign) CGFloat smartYTemp; 
 
 @end
 
@@ -64,10 +73,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.type = BUKMessageBarTypeLight;
-        self.animationDirection = BUKMessageBarAnimationDirectionDirectionY;
-        self.duration = kDefaultDuration;
+        self.type = kDefaultType;
+        self.animationDirection = kDefaultAnimationDirection;
+        self.duration = kDefaultLast;
         self.expanded = NO;
+        self.enableDismissMask = YES;
+        self.enableSmartY = YES;
+        self.smartYTemp = -1.0;
         [self addGestureRecognizer:[UIPanGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
             if (!self.superview) {
                 return;
@@ -128,6 +140,7 @@
 #pragma mark - public -
 - (void)showAnimated:(BOOL)animated completion:(void (^)())completion
 {
+    [self initDismissTimer];
     if (!self.superview) {
         [[UIWindow mainWindow] addSubview:self];
     }
@@ -143,17 +156,17 @@
             break;
         }
         case BUKMessageBarAnimationDirectionDirectionXPlus:{
-            currentFrame.origin.y = kStatusBarHeight;
+            currentFrame.origin.y = self.startY;
             currentFrame.origin.x = -CGRectGetWidth(currentFrame);
             break;
         }
         case BUKMessageBarAnimationDirectionDirectionXNegative:{
-            currentFrame.origin.y = kStatusBarHeight;
+            currentFrame.origin.y = self.startY;
             currentFrame.origin.x = CGRectGetWidth([UIScreen mainScreen].bounds) + CGRectGetWidth(currentFrame);
             break;
         }
         case BUKMessageBarAnimationDirectionDirectionZ:{
-            currentFrame.origin.y = kStatusBarHeight;
+            currentFrame.origin.y = self.startY;
             currentFrame.origin.x = kPadding;
             CATransform3D transform = CATransform3DMakeTranslation(0, 0, kZHeight);
             transform.m34 = -1.0 / 500.0;
@@ -163,13 +176,16 @@
         }
     }
     self.frame = currentFrame;
-    frame.origin.y = kStatusBarHeight;
+    frame.origin.y = self.startY;
     frame.origin.x = kPadding;
     [self setFrame:frame 
          transform:CATransform3DIdentity 
              alpha:1.0 
           animated:animated 
         completion:completion];
+    if (self.expanded) {
+        [self showDismissBackgroundButtonAnimated:animated];
+    }
 }
 
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)())completion
@@ -193,12 +209,12 @@
             break;
         }
         case BUKMessageBarAnimationDirectionDirectionXPlus:{
-            frame.origin.y = kStatusBarHeight;
+            frame.origin.y = self.startY;
             frame.origin.x = -CGRectGetWidth(frame);
             break;
         }
         case BUKMessageBarAnimationDirectionDirectionXNegative:{
-            frame.origin.y = kStatusBarHeight;
+            frame.origin.y = self.startY;
             frame.origin.x = CGRectGetWidth([UIScreen mainScreen].bounds) + CGRectGetWidth(frame);
             break;
         }
@@ -219,6 +235,39 @@
         }
         [self removeFromSuperview];
     }];
+
+    [self dismissDismissBackgroundButtonAnimated:animated];
+}
+
+- (void)dismissDismissBackgroundButtonAnimated:(BOOL)animated
+{
+    if (!self.enableDismissMask) {
+        return;
+    }
+    if (animated) {
+        [UIView animateWithDuration:kDefaultDuration animations:^{
+            self.dismissBackgroundButton.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self.dismissBackgroundButton removeFromSuperview];
+        }];
+    } else {
+        [self.dismissBackgroundButton removeFromSuperview];
+    }
+}
+
+- (void)showDismissBackgroundButtonAnimated:(BOOL)animated
+{
+    if (!self.enableDismissMask) {
+        return;
+    }
+    [self setupDismissMask];
+    if (animated) {
+        [UIView animateWithDuration:kDefaultDuration animations:^{
+            self.dismissBackgroundButton.alpha = kDismissViewAlpha;
+        }];
+    } else {
+        self.dismissBackgroundButton.alpha = kDismissViewAlpha;
+    }
 }
 
 - (void)expandAnimated:(BOOL)animated expand:(BOOL)expand
@@ -227,30 +276,38 @@
         return;
     }
     CGRect newFrame = self.frame;
-    CATransform3D contentViewTransform;
+    CATransform3D detailContentViewTransform;
     if (expand) {
         //expand
+        [self.dismissTimer invalidate];
+        self.dismissTimer = nil;
         newFrame.size.height = self.expandHeight;
-        contentViewTransform = CATransform3DIdentity;
+        detailContentViewTransform = CATransform3DIdentity;
     } else {
         //fold
         newFrame.size.height = self.foldHeight;
-        contentViewTransform = CATransform3DMakeScale(1.0, 0.01, 1.0);
+        detailContentViewTransform = CATransform3DMakeScale(1.0, 0.01, 1.0);
     }
     if (animated) {
-        [UIView animateWithDuration:self.duration animations:^{
+        [UIView animateWithDuration:kDefaultDuration animations:^{
             self.frame = newFrame;
-            self.contentView.layer.transform = contentViewTransform;
+            self.detailContentView.layer.transform = detailContentViewTransform;
         } completion:nil];
     } else {
         self.frame = newFrame;
-        self.contentView.layer.transform = contentViewTransform;
+        self.detailContentView.layer.transform = detailContentViewTransform;
     }
     self.expanded = expand;
 }
 
 - (void)toggleAnimated:(BOOL)animated
 {
+    if (self.expanded) {
+        [self initDismissTimer];
+        [self dismissDismissBackgroundButtonAnimated:animated];
+    } else {
+        [self showDismissBackgroundButtonAnimated:animated];
+    }
     [self expandAnimated:YES expand:!self.expanded];
 }
 
@@ -269,7 +326,27 @@
 
 - (void)initObservers
 {
-    //mainly rotate
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)orientationChanged:(NSNotification *)notification {
+    
+    //reset self frame
+    [self setupFrame];
+    
+    //reset dismissButtonFrame
+    if (self.dismissBackgroundButton) {
+        self.dismissBackgroundButton.frame = self.superview.bounds;
+    }
+}
+
+- (void)initDismissTimer
+{
+    self.dismissTimer = [NSTimer bk_scheduledTimerWithTimeInterval:self.duration block:^(NSTimer *timer) {
+        [self dismissAnimated:YES completion:nil];
+        [timer invalidate];
+        self.dismissTimer = nil;        
+    } repeats:NO];
 }
 
 - (void)setup
@@ -298,7 +375,7 @@
         }
         return;
     }
-    [UIView animateWithDuration:self.duration animations:^{
+    [UIView animateWithDuration:kDefaultDuration animations:^{
         if (self.animationDirection != BUKMessageBarAnimationDirectionDirectionZ) {
             self.frame = frame;
         } else {
@@ -316,13 +393,13 @@
 {
     [self.titleContainerView addSubview:self.titleLabel];
     [self.titleContainerView addSubview:self.subtitleLabel];    
-    [self.contentView addSubview:self.detailLabel];
+    [self.detailContentView addSubview:self.detailLabel];
     
     [self addSubview:self.titleContainerView];
-    [self addSubview:self.contentView];
+    [self addSubview:self.detailContentView];
     
     if (self.buttons.count) {
-        [self.contentView addSubview:self.buttonsContainerView];
+        [self.detailContentView addSubview:self.buttonsContainerView];
         [self addButtons];
     }
 }
@@ -340,7 +417,7 @@
     
     CGRect titleBoundRect = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) - 4 * kPadding - kTopButtonWidth * 2, CGRectGetHeight([UIScreen mainScreen].bounds));
     CGRect textBoundRect = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) - 4 * kPadding, CGRectGetHeight([UIScreen mainScreen].bounds));
-    CGPoint origin = CGPointMake(kPadding, kPadding + kStatusBarHeight);
+    CGPoint origin = CGPointMake(kPadding, kPadding + self.startY);
     CGRect titleFrame = [self.titleLabel textRectForBounds:titleBoundRect limitedToNumberOfLines:0];    
     titleFrame.origin.y = CGRectGetHeight(titleFrame) / 4;
     titleFrame.origin.x = kPadding;
@@ -363,10 +440,10 @@
     detailFrame.origin.x = kPadding;    
     self.detailLabel.frame = detailFrame;
     
-    CGFloat contentViewHeight = CGRectGetHeight(detailFrame) + kPadding;
+    CGFloat detailContentViewHeight = CGRectGetHeight(detailFrame) + kPadding;
     if (self.buttons.count) {
         self.buttonsContainerView.frame = CGRectMake(0, CGRectGetMaxY(detailFrame) + kPadding / 2, width, kButtonContainerHeight);
-        contentViewHeight += CGRectGetHeight(self.buttonsContainerView.frame); 
+        detailContentViewHeight += CGRectGetHeight(self.buttonsContainerView.frame); 
         CGFloat buttonWidth = (width - kButtonSpace * (self.buttons.count + 1)) / self.buttons.count;
         [self.buttons enumerateObjectsUsingBlock:^(BUKMessageBarButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             CGRect buttonFrame = CGRectMake(idx * buttonWidth + kButtonSpace * (idx + 1), kButtonTopPadding, buttonWidth, kButtonContainerHeight - kButtonTopPadding * 2);
@@ -376,8 +453,8 @@
     }
     
     
-    CGFloat height = CGRectGetHeight(titleContainerFrame) + contentViewHeight;
-    self.contentView.frame = CGRectMake(0, CGRectGetHeight(titleContainerFrame), width, contentViewHeight);
+    CGFloat height = CGRectGetHeight(titleContainerFrame) + detailContentViewHeight;
+    self.detailContentView.frame = CGRectMake(0, CGRectGetHeight(titleContainerFrame), width, detailContentViewHeight);
     self.frame = CGRectMake(kPadding, -height, width, height);
     self.expandHeight = height;
     self.foldHeight = CGRectGetHeight(titleContainerFrame);
@@ -436,14 +513,31 @@
     } else {
         //bounce back
         CGRect frame = self.bounds;
-        frame.origin.y = kStatusBarHeight;
+        frame.origin.y = self.startY;
         frame.origin.x = kPadding;
-        [UIView animateWithDuration:self.duration animations:^{
+        [UIView animateWithDuration:kDefaultDuration animations:^{
             self.frame = frame;
         }];
     }
 }
+- (void)setupDismissMask
+{
+    if (self.superview && self.enableDismissMask) {
+        
+        [self.superview insertSubview:self.dismissBackgroundButton belowSubview:self];
+        self.dismissBackgroundButton.frame = self.superview.bounds; 
+    }
+}
 
+- (BOOL)checkNavigationControllerShowsBar:(UIViewController *)vc
+{
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        if (!((UINavigationController *)vc).isNavigationBarHidden) {
+            return YES;
+        }
+    }
+    return NO;
+}
 #pragma mark - getters & setters -
 #pragma mark - setters
 - (void)setExpanded:(BOOL)expanded
@@ -482,6 +576,33 @@
 }
 
 #pragma mark - getters
+- (CGFloat)smartY
+{
+    if (self.smartYTemp > 0) {
+        return self.smartYTemp;
+    }
+    UIViewController *vc = [UIApplication sharedApplication].delegate.window.rootViewController;
+    self.smartYTemp = kStatusBarHeight;
+    if ([self checkNavigationControllerShowsBar:vc]) {
+        self.smartYTemp += CGRectGetHeight(((UINavigationController *)vc).navigationBar.frame) + kPadding;
+    } else if ([vc isKindOfClass:[UITabBarController class]]){
+        UIViewController *selectedVC = ((UITabBarController *)vc).selectedViewController;
+        if ([self checkNavigationControllerShowsBar:selectedVC]) {
+            self.smartYTemp += CGRectGetHeight(((UINavigationController *)selectedVC).navigationBar.frame) + kPadding;
+        }
+    }
+    return self.smartYTemp;
+}
+
+- (CGFloat)startY
+{
+    if (self.enableSmartY) {
+        return [self smartY];
+    } else {
+        return kStatusBarHeight;
+    }
+}
+
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
@@ -532,14 +653,14 @@
     return _buttonsContainerView;
 }
 
-- (UIView *)contentView
+- (UIView *)detailContentView
 {
-    if (!_contentView) {
-        _contentView = [[UIView alloc] init];
-        _contentView.layer.anchorPoint = CGPointMake(0.5, 0);
-        _contentView.backgroundColor = [UIColor buk_messageBar_background];
+    if (!_detailContentView) {
+        _detailContentView = [[UIView alloc] init];
+        _detailContentView.layer.anchorPoint = CGPointMake(0.5, 0);
+        _detailContentView.backgroundColor = [UIColor buk_messageBar_background];
     }
-    return _contentView;
+    return _detailContentView;
 }
 
 - (UIButton *)toggleButton
@@ -581,5 +702,20 @@
         } forControlEvents:UIControlEventTouchUpInside];
     }
     return _dismissButton;
+}
+
+- (UIButton *)dismissBackgroundButton
+{
+    if (!_dismissBackgroundButton) {
+        _dismissBackgroundButton = [[UIButton alloc] init];
+        _dismissBackgroundButton.backgroundColor = [UIColor blackColor];
+        _dismissBackgroundButton.alpha = 0.0;
+        [_dismissBackgroundButton bk_addEventHandler:^(id sender) {
+            [self dismissAnimated:YES completion:^{
+                [_dismissBackgroundButton removeFromSuperview];
+            }];
+        } forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _dismissBackgroundButton;
 }
 @end
