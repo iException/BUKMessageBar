@@ -510,6 +510,7 @@
               animated:YES completion:^{
                   [self removeFromSuperview];
               }];
+        [self dismissDismissBackgroundButtonAnimated:YES];
     } else {
         //bounce back
         CGRect frame = self.bounds;
