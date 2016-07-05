@@ -1,0 +1,33 @@
+PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BUKMessageBar (0.1.0):
+    - BlocksKit
+
+DEPENDENCIES:
+  - BUKMessageBar (from `../`)
+
+EXTERNAL SOURCES:
+  BUKMessageBar:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  BUKMessageBar: 399722586f2290ad2cc7710205bdbb7c6a0a8434
+
+PODFILE CHECKSUM: bc22e75e88a1d20e60e965a61d6d262ca97ed094
+
+COCOAPODS: 1.0.1

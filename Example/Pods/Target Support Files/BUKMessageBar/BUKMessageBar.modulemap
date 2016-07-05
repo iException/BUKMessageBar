@@ -1,0 +1,6 @@
+framework module BUKMessageBar {
+  umbrella header "BUKMessageBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

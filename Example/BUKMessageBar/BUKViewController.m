@@ -7,6 +7,13 @@
 //
 
 #import "BUKViewController.h"
+#import "BUKMessageBar.h"
+
+@interface BUKViewController ()
+
+@property (nonatomic, strong) BUKMessageBar *bar;
+
+@end
 
 @interface BUKViewController ()
 
@@ -17,13 +24,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)newMessage:(id)sender {
+    
+    BUKMessageBar *bar = [[BUKMessageBar alloc] initWithTitle:@"/Home" detail:@"asdasd asdasd asdas dasda sasdjlasjdl ajlsd lasdj la asdasd asdasd asdas dasda sasdjlasjdl ajlsd lasdj la "];
+    bar.animationDirection = BUKMessageBarAnimationDirectionDirectionZ;
+    bar.buttons = @[
+                    [BUKMessageBarButton buttonWithTitle:@"OK" type:BUKMessageBarButtonTypeOk handler:^(BUKMessageBarButton *button) {
+                        [button.bar dismissAnimated:YES completion:nil];  
+                    }]
+                    ];
+    [bar setTapHandler:^(BUKMessageBar *bar) {
+        [bar toggleAnimated:YES];
+    }];
+    [bar showAnimated:YES completion:^{
+    }];
 }
 
 @end

@@ -1,0 +1,27 @@
+{
+  "name": "BUKMessageBar",
+  "version": "0.1.0",
+  "summary": "A short description of BUKMessageBar.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/iException/BUKMessageBar",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "monzy613": "monzy613@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iException/BUKMessageBar.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "BUKMessageBar/Classes/**/*",
+  "dependencies": {
+    "BlocksKit": [
+
+    ]
+  }
+}
