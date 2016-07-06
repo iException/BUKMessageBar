@@ -168,7 +168,9 @@
 #pragma mark - public -
 - (void)showAnimated:(BOOL)animated completion:(void (^)())completion
 {
-    [self initDismissTimer];
+    if (!self.expanded) { 
+        [self initDismissTimer];
+    }
     if (!self.superview) {
         [[UIWindow mainWindow] addSubview:self];
     }
@@ -357,10 +359,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-- (void)orientationChanged:(NSNotification *)notification {
-    
+- (void)orientationChanged:(NSNotification *)notification {    
     //reset self frame
+    CGRect bounds = [UIWindow mainWindow].bounds;
     [self setupFrame];
+    if (self.isShow) {
+        self.isShow = NO;
+        [self showAnimated:NO completion:nil];
+    }
     
     //reset dismissButtonFrame
     if (self.dismissBackgroundButton) {
@@ -441,7 +447,7 @@
 
 - (void)setupFrame
 {
-    CGFloat width = CGRectGetWidth([UIScreen mainScreen].bounds) - 2 * kPadding;
+    CGFloat width = CGRectGetWidth([UIWindow mainWindow].bounds) - 2 * kPadding;
     
     CGRect titleBoundRect = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) - 4 * kPadding - kTopButtonWidth * 2, CGRectGetHeight([UIScreen mainScreen].bounds));
     CGRect textBoundRect = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) - 4 * kPadding, CGRectGetHeight([UIScreen mainScreen].bounds));
@@ -456,8 +462,6 @@
                                           CGRectGetHeight(titleFrame));
     
     self.titleLabel.frame = titleFrame;
-//    self.toggleButton.frame = CGRectMake(width - kTopButtonWidth * 2 - kPadding, CGRectGetHeight(titleFrame) / 4, kTopButtonWidth, CGRectGetHeight(titleFrame));
-//    self.dismissButton.frame = CGRectMake(width - kTopButtonWidth - kPadding, CGRectGetHeight(titleFrame) / 4, kTopButtonWidth, CGRectGetHeight(titleFrame));
     CGRect titleContainerFrame = CGRectMake(0, 0, width, CGRectGetHeight(titleFrame) * 1.5);
     self.titleContainerView.frame = titleContainerFrame;
     [self setupTitleBackgroundLayerWithFrame:titleContainerFrame];
