@@ -45,6 +45,34 @@
 
 @end
 
+@implementation UIViewController (BUKMessageBar)
+
++ (UIViewController *)topMostViewController
+{
+    UIViewController *rootViewController = ([UIApplication sharedApplication].delegate).window.rootViewController;
+    
+    return [self topViewControllerOfController:rootViewController];
+}
+
++ (UIViewController *)topViewControllerOfController:(UIViewController *)controller
+{
+    if (controller.presentedViewController) {
+        return [self topViewControllerOfController:controller.presentedViewController];
+    }
+    
+    if ([controller isKindOfClass:[UITabBarController class]]) {
+        return [self topViewControllerOfController:[(UITabBarController *)controller selectedViewController]];
+    }
+    
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+        return [self topViewControllerOfController:[(UINavigationController *)controller topViewController]];
+    }
+    
+    return controller;
+}
+
+@end
+
 @interface BUKMessageBar ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -530,14 +558,16 @@
     }
 }
 
-- (BOOL)checkNavigationControllerShowsBar:(UIViewController *)vc
+- (CGFloat)navigationControllerHeight:(UIViewController *)vc
 {
     if ([vc isKindOfClass:[UINavigationController class]]) {
         if (!((UINavigationController *)vc).isNavigationBarHidden) {
-            return YES;
+            return CGRectGetHeight(((UINavigationController *)vc).navigationBar.frame);
         }
+    } else if (vc.navigationController && !vc.navigationController.isNavigationBarHidden) {
+        return CGRectGetHeight(vc.navigationController.navigationBar.frame);
     }
-    return NO;
+    return 0.0;
 }
 #pragma mark - getters & setters -
 #pragma mark - setters
@@ -582,15 +612,11 @@
     if (self.smartYTemp > 0) {
         return self.smartYTemp;
     }
-    UIViewController *vc = [UIApplication sharedApplication].delegate.window.rootViewController;
+    UIViewController *vc = [UIViewController topMostViewController];
     self.smartYTemp = kStatusBarHeight;
-    if ([self checkNavigationControllerShowsBar:vc]) {
-        self.smartYTemp += CGRectGetHeight(((UINavigationController *)vc).navigationBar.frame) + kPadding;
-    } else if ([vc isKindOfClass:[UITabBarController class]]){
-        UIViewController *selectedVC = ((UITabBarController *)vc).selectedViewController;
-        if ([self checkNavigationControllerShowsBar:selectedVC]) {
-            self.smartYTemp += CGRectGetHeight(((UINavigationController *)selectedVC).navigationBar.frame) + kPadding;
-        }
+    CGFloat navigationBarHeight = [self navigationControllerHeight:vc];
+    if (navigationBarHeight != 0.0) {
+        self.smartYTemp += navigationBarHeight + kPadding;
     }
     return self.smartYTemp;
 }
