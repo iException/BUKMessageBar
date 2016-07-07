@@ -309,8 +309,7 @@
     CATransform3D detailContentViewTransform;
     if (expand) {
         //expand
-        [self.dismissTimer invalidate];
-        self.dismissTimer = nil;
+        [self stopDismissTimer];
         newFrame.size.height = self.expandHeight;
         detailContentViewTransform = CATransform3DIdentity;
     } else {
@@ -370,17 +369,28 @@
     
     //reset dismissButtonFrame
     if (self.dismissBackgroundButton) {
-        self.dismissBackgroundButton.frame = self.superview.bounds;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.dismissBackgroundButton.frame = self.superview.bounds;
+        }];
     }
 }
 
 - (void)initDismissTimer
 {
+    if (self.dismissTimer) {
+        return;
+    }
+    __weak typeof(self) weakSelf = self;
     self.dismissTimer = [NSTimer bk_scheduledTimerWithTimeInterval:self.duration block:^(NSTimer *timer) {
-        [self dismissAnimated:YES completion:nil];
-        [timer invalidate];
-        self.dismissTimer = nil;        
+        [weakSelf dismissAnimated:YES completion:nil];
+        [weakSelf stopDismissTimer];
     } repeats:NO];
+}
+
+- (void)stopDismissTimer
+{
+    [self.dismissTimer invalidate];
+    self.dismissTimer = nil;
 }
 
 - (void)setup
