@@ -17,10 +17,10 @@ typedef NS_ENUM(NSInteger, BUKMessageBarType) {
 };
 
 typedef NS_ENUM(NSInteger, BUKMessageBarAnimationDirection) {
-    BUKMessageBarAnimationDirectionDirectionY,
-    BUKMessageBarAnimationDirectionDirectionXPlus,
-    BUKMessageBarAnimationDirectionDirectionXNegative,
-    BUKMessageBarAnimationDirectionDirectionZ
+    BUKMessageBarAnimationDirectionY,
+    BUKMessageBarAnimationDirectionXPlus,
+    BUKMessageBarAnimationDirectionXNegative,
+    BUKMessageBarAnimationDirectionZ
 };
 
 @interface BUKMessageBar : UIView
