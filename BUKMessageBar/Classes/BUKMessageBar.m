@@ -27,7 +27,7 @@
 #define kDefaultLast 3.0
 #define kDismissViewAlpha 0.3
 
-#define kDefaultAnimationDirection BUKMessageBarAnimationDirectionDirectionZ
+#define kDefaultAnimationDirection BUKMessageBarAnimationDirectionZ
 #define kDefaultType BUKMessageBarTypeLight
 
 @implementation UIWindow (BUKMessageBarManagerMainWindow)
@@ -180,21 +180,21 @@
     CGRect frame = self.bounds;
     CGRect currentFrame = self.frame;
     switch (self.animationDirection) {
-        case BUKMessageBarAnimationDirectionDirectionY:{
+        case BUKMessageBarAnimationDirectionY:{
             currentFrame.origin.y = -CGRectGetHeight(currentFrame);
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionXPlus:{
+        case BUKMessageBarAnimationDirectionXPlus:{
             currentFrame.origin.y = self.startY;
             currentFrame.origin.x = -CGRectGetWidth(currentFrame);
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionXNegative:{
+        case BUKMessageBarAnimationDirectionXNegative:{
             currentFrame.origin.y = self.startY;
             currentFrame.origin.x = CGRectGetWidth([UIScreen mainScreen].bounds) + CGRectGetWidth(currentFrame);
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionZ:{
+        case BUKMessageBarAnimationDirectionZ:{
             currentFrame.origin.y = self.startY;
             currentFrame.origin.x = kPadding;
             CATransform3D transform = CATransform3DMakeTranslation(0, 0, kZHeight);
@@ -219,8 +219,14 @@
 
 - (void)showAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion
 {
+    BUKMessageBarAnimationDirection tempDirection = self.animationDirection;
     self.animationDirection = direction;
-    [self showAnimated:animated completion:completion];
+    [self showAnimated:animated completion:^{
+        if (completion) {
+            completion();
+        }
+        self.animationDirection = tempDirection;
+    }];
 }
 
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)())completion
@@ -230,7 +236,7 @@
     }
     CATransform3D transform = CATransform3DIdentity;
     CGFloat alpha = 1.0;
-    if (self.animationDirection == BUKMessageBarAnimationDirectionDirectionZ) {
+    if (self.animationDirection == BUKMessageBarAnimationDirectionZ) {
         transform = CATransform3DMakeTranslation(0, 0, kZHeight);
         alpha = 0.0;
     }
@@ -238,22 +244,22 @@
     CGRect frame = self.bounds;
 
     switch (self.animationDirection) {
-        case BUKMessageBarAnimationDirectionDirectionY:{
+        case BUKMessageBarAnimationDirectionY:{
             frame.origin.y = -CGRectGetHeight(frame);
             frame.origin.x += kPadding;
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionXPlus:{
+        case BUKMessageBarAnimationDirectionXPlus:{
             frame.origin.y = self.startY;
             frame.origin.x = -CGRectGetWidth(frame);
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionXNegative:{
+        case BUKMessageBarAnimationDirectionXNegative:{
             frame.origin.y = self.startY;
             frame.origin.x = CGRectGetWidth([UIScreen mainScreen].bounds) + CGRectGetWidth(frame);
             break;
         }
-        case BUKMessageBarAnimationDirectionDirectionZ:{            
+        case BUKMessageBarAnimationDirectionZ:{            
             transform = CATransform3DMakeTranslation(0, 0, kZHeight);
             transform.m34 = -1.0 / 500.0;
             alpha = 0.0;
@@ -276,8 +282,14 @@
 
 - (void)dismissAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion
 {
+    BUKMessageBarAnimationDirection tempDirection = self.animationDirection;
     self.animationDirection = direction;
-    [self dismissAnimated:animated completion:completion];
+    [self dismissAnimated:animated completion:^{
+        if (completion) {
+            completion();
+        }
+        self.animationDirection = tempDirection;
+    }];
 }
 
 - (void)dismissDismissBackgroundButtonAnimated:(BOOL)animated
@@ -419,7 +431,7 @@
       completion:(void (^)())completion
 {
     if (!animated) {
-        if (self.animationDirection != BUKMessageBarAnimationDirectionDirectionZ) {
+        if (self.animationDirection != BUKMessageBarAnimationDirectionZ) {
             self.frame = frame;
         } else {
             self.alpha = alpha;
@@ -431,7 +443,7 @@
         return;
     }
     [UIView animateWithDuration:kDefaultDuration animations:^{
-        if (self.animationDirection != BUKMessageBarAnimationDirectionDirectionZ) {
+        if (self.animationDirection != BUKMessageBarAnimationDirectionZ) {
             self.frame = frame;
         } else {
             self.alpha = alpha;
