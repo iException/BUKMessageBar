@@ -39,12 +39,15 @@ typedef NS_ENUM(NSInteger, BUKMessageBarAnimationDirection) {
 @property (nonatomic, assign) BOOL enableDismissMask;
 @property (nonatomic, assign) BOOL enableSmartY;
 @property (nonatomic, assign) CGFloat startY;
+@property (nonatomic, strong) UIColor *color;
 
 - (instancetype)initWithTitle:(NSString *)title 
                        detail:(NSString *)detail;
 
 - (void)showAnimated:(BOOL)animated completion:(void (^)())completion;
+- (void)showAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion;
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)())completion;
+- (void)dismissAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion;
 - (void)expandAnimated:(BOOL)animated expand:(BOOL)expand;
 - (void)toggleAnimated:(BOOL)animated;
 

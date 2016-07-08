@@ -84,8 +84,6 @@
 @property (nonatomic, strong) UIButton *dismissBackgroundButton;
 @property (nonatomic, strong) CAShapeLayer *titleBackgroundLayer;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
-@property (nonatomic, strong) UIButton *toggleButton;
-@property (nonatomic, strong) UIButton *dismissButton;
 @property (nonatomic, strong) NSTimer *dismissTimer;
 @property (nonatomic, assign) CGFloat expandHeight;
 @property (nonatomic, assign) CGFloat foldHeight;
@@ -95,6 +93,7 @@
 @end
 
 @implementation BUKMessageBar
+@synthesize color = _color;
 
 #pragma mark - lifecycle -
 - (instancetype)initWithFrame:(CGRect)frame
@@ -218,6 +217,12 @@
     }
 }
 
+- (void)showAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion
+{
+    self.animationDirection = direction;
+    [self showAnimated:animated completion:completion];
+}
+
 - (void)dismissAnimated:(BOOL)animated completion:(void (^)())completion
 {
     if (!self.isShow) {
@@ -267,6 +272,12 @@
     }];
 
     [self dismissDismissBackgroundButtonAnimated:animated];
+}
+
+- (void)dismissAnimated:(BOOL)animated direction:(BUKMessageBarAnimationDirection)direction completion:(void (^)())completion
+{
+    self.animationDirection = direction;
+    [self dismissAnimated:animated completion:completion];
 }
 
 - (void)dismissDismissBackgroundButtonAnimated:(BOOL)animated
@@ -367,7 +378,7 @@
         [self showAnimated:NO completion:nil];
     }
     
-    //reset dismissButtonFrame
+    //reset dismissBackgroundButtonFrame
     if (self.dismissBackgroundButton) {
         [UIView animateWithDuration:0.1 animations:^{
             self.dismissBackgroundButton.frame = self.superview.bounds;
@@ -585,16 +596,6 @@
 }
 #pragma mark - getters & setters -
 #pragma mark - setters
-- (void)setExpanded:(BOOL)expanded
-{
-    _expanded = expanded;
-    if (_expanded) {
-        [self.toggleButton setTitle:kFoldButtonTitle forState:UIControlStateNormal];
-    } else {
-        [self.toggleButton setTitle:kExpandButtonTitle forState:UIControlStateNormal];
-    }
-}
-
 - (void)setType:(BUKMessageBarType)type
 {
     _type = type;
@@ -618,6 +619,14 @@
     _buttons = buttons;
     [self addSubvews];
     [self setupFrame];
+}
+
+- (void)setColor:(UIColor *)color
+{
+    _color = color;
+    self.backgroundColor = color;
+    _titleContainerView.backgroundColor = color;
+    _detailContentView.backgroundColor = color;
 }
 
 #pragma mark - getters
@@ -704,45 +713,12 @@
     return _detailContentView;
 }
 
-- (UIButton *)toggleButton
+- (UIColor *)color
 {
-    if (!_toggleButton) {
-        _toggleButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _toggleButton.hidden = YES;
-        if (_type == BUKMessageBarTypeLight) {
-            [_toggleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        } else {
-            [_toggleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-        _toggleButton.titleLabel.font = [UIFont systemFontOfSize:10];
-        
-        __weak typeof(self) weakSelf = self;
-        [_toggleButton bk_addEventHandler:^(id sender) {
-            [weakSelf expandAnimated:YES expand:!self.expanded];
-        } forControlEvents:UIControlEventTouchUpInside];
+    if (!_color) {
+        _color = [UIColor buk_messageBar_background]; 
     }
-    return _toggleButton;
-}
-
-- (UIButton *)dismissButton
-{
-    if (!_dismissButton) {
-        _dismissButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _dismissButton.hidden = YES;
-        if (_type == BUKMessageBarTypeLight) {
-            [_dismissButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        } else {
-            [_dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-        [_dismissButton setTitle:@"关闭" forState:UIControlStateNormal];
-        _dismissButton.titleLabel.font = [UIFont systemFontOfSize:10];
-        
-        __weak typeof(self) weakSelf = self;
-        [_dismissButton bk_addEventHandler:^(id sender) {
-            [weakSelf dismissAnimated:YES completion:nil];            
-        } forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _dismissButton;
+    return _color;
 }
 
 - (UIButton *)dismissBackgroundButton

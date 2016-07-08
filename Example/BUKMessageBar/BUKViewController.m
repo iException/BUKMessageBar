@@ -29,6 +29,7 @@
 - (IBAction)newMessage:(id)sender {
     
     BUKMessageBar *bar = [[BUKMessageBar alloc] initWithTitle:@"/Home" detail:@"asdasd asdasd asdas dasda sasdjlasjdl ajlsd lasdj la asdasd asdasd asdas dasda sasdjlasjdl ajlsd lasdj la "];
+    bar.color = [UIColor redColor];
     bar.animationDirection = BUKMessageBarAnimationDirectionDirectionZ;
     bar.buttons = @[
                     [BUKMessageBarButton buttonWithTitle:@"OK" type:BUKMessageBarButtonTypeOk handler:^(BUKMessageBarButton *button) {
