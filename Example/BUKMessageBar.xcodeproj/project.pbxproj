@@ -250,6 +250,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = monzy613;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 74UX6D4SCA;
+						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};

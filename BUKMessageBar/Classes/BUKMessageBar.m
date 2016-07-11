@@ -114,14 +114,25 @@
             CGPoint locationInMainWindow = [sender locationInView:self.superview];
             CGRect frame = self.frame;
             switch (state) {
+                case UIGestureRecognizerStateBegan:
+                    [self stopDismissTimer];
+                    break;
                 case UIGestureRecognizerStateChanged: {
                     frame.origin.x += locationInMainWindow.x - self.previousPanPoint.x;
                     self.frame = frame;
                     break;
                 }
-                case UIGestureRecognizerStateCancelled:
+                case UIGestureRecognizerStateCancelled: {
+                    if (!self.expanded) {
+                        [self initDismissTimer];
+                    }
+                    break;
+                }
                 case UIGestureRecognizerStateFailed:
                 case UIGestureRecognizerStateEnded: {
+                    if (!self.expanded) {
+                        [self initDismissTimer];
+                    }
                     [self endPan];
                     break;
                 }
@@ -152,6 +163,13 @@
 {
     [self.titleLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
     [self.detailLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
+}
+
+#pragma mark - touches -
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [self stopDismissTimer];
 }
 
 #pragma mark - kvo -
@@ -652,6 +670,8 @@
     CGFloat navigationBarHeight = [self navigationControllerHeight:vc];
     if (navigationBarHeight != 0.0) {
         self.smartYTemp += navigationBarHeight + kPadding;
+    } else {
+        self.smartYTemp += kPadding;
     }
     return self.smartYTemp;
 }
