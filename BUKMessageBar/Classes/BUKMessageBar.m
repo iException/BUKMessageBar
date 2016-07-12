@@ -175,10 +175,10 @@
 #pragma mark - kvo -
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ((object == self.titleLabel && keyPath == NSStringFromSelector(@selector(text))) || (object == self.detailLabel && keyPath == NSStringFromSelector(@selector(text)))) {
+    if ((object == self.titleLabel && [keyPath isEqualToString:NSStringFromSelector(@selector(text))]) 
+        || 
+        (object == self.detailLabel && [keyPath isEqualToString:NSStringFromSelector(@selector(text))])) {
         [self setupFrame];
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
