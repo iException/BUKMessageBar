@@ -600,6 +600,9 @@
              transform:CATransform3DMakeTranslation(0, 0, kZHeight) 
                  alpha:0.0
               animated:YES completion:^{
+                  if (self.dismissHandler) {
+                      self.dismissHandler(self);
+                  }
                   [self removeFromSuperview];
               }];
         [self dismissDismissBackgroundButtonAnimated:YES];
