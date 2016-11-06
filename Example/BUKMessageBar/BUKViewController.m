@@ -33,14 +33,13 @@
     bar.animationDirection = BUKMessageBarAnimationDirectionZ;
     bar.buttons = @[
                     [BUKMessageBarButton buttonWithTitle:@"OK" type:BUKMessageBarButtonTypeOk handler:^(BUKMessageBarButton *button) {
-                        [button.bar dismissAnimated:YES completion:nil];  
+                        [button.bar dismissAnimated:YES completion:nil];
                     }]
                     ];
     [bar setTapHandler:^(BUKMessageBar *bar) {
         [bar toggleAnimated:YES];
     }];
-    [bar showAnimated:YES completion:^{
-    }];
+    [bar showAnimated:YES completion:nil];
 }
 
 @end

@@ -107,39 +107,40 @@
         self.enableDismissMask = YES;
         self.enableSmartY = YES;
         self.smartYTemp = -1.0;
+        __weak typeof(self) weakSelf = self;
         [self addGestureRecognizer:[UIPanGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-            if (!self.superview) {
+            if (!weakSelf.superview) {
                 return;
             }
-            CGPoint locationInMainWindow = [sender locationInView:self.superview];
-            CGRect frame = self.frame;
+            CGPoint locationInMainWindow = [sender locationInView:weakSelf.superview];
+            CGRect frame = weakSelf.frame;
             switch (state) {
                 case UIGestureRecognizerStateBegan:
-                    [self stopDismissTimer];
+                    [weakSelf stopDismissTimer];
                     break;
                 case UIGestureRecognizerStateChanged: {
-                    frame.origin.x += locationInMainWindow.x - self.previousPanPoint.x;
-                    self.frame = frame;
+                    frame.origin.x += locationInMainWindow.x - weakSelf.previousPanPoint.x;
+                    weakSelf.frame = frame;
                     break;
                 }
                 case UIGestureRecognizerStateCancelled: {
-                    if (!self.expanded) {
-                        [self initDismissTimer];
+                    if (!weakSelf.expanded) {
+                        [weakSelf initDismissTimer];
                     }
                     break;
                 }
                 case UIGestureRecognizerStateFailed:
                 case UIGestureRecognizerStateEnded: {
-                    if (!self.expanded) {
-                        [self initDismissTimer];
+                    if (!weakSelf.expanded) {
+                        [weakSelf initDismissTimer];
                     }
-                    [self endPan];
+                    [weakSelf endPan];
                     break;
                 }
                 default:
                     break;
             }
-            self.previousPanPoint = locationInMainWindow;
+            weakSelf.previousPanPoint = locationInMainWindow;
         }]];
         [self setup];
         [self initKVO];
@@ -161,8 +162,8 @@
 
 - (void)dealloc
 {
-    [self.titleLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
-    [self.detailLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
+    [_titleLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
+    [_detailLabel removeObserver:self forKeyPath:NSStringFromSelector(@selector(text))];
 }
 
 #pragma mark - touches -
@@ -288,12 +289,13 @@
     [self setFrame:frame
          transform:transform 
              alpha:alpha
-          animated:animated completion:^{
-        if (completion) {
-            completion();
-        }
-        [self removeFromSuperview];
-    }];
+          animated:animated
+        completion:^{
+            if (completion) {
+                completion();
+            }
+            [self removeFromSuperview];
+        }];
 
     [self dismissDismissBackgroundButtonAnimated:animated];
 }
@@ -312,6 +314,9 @@
 
 - (void)dismissDismissBackgroundButtonAnimated:(BOOL)animated
 {
+    if (!_dismissBackgroundButton) {
+        return;
+    }
     if (!self.enableDismissMask) {
         return;
     }
@@ -460,6 +465,7 @@
         }
         return;
     }
+    
     [UIView animateWithDuration:kDefaultDuration animations:^{
         if (self.animationDirection != BUKMessageBarAnimationDirectionZ) {
             self.frame = frame;
@@ -635,10 +641,11 @@
 - (void)setTapHandler:(void (^)(BUKMessageBar *))tapHandler
 {
     _tapHandler = tapHandler;
+    __weak typeof(self) weakSelf = self;
     self.tap = [UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
-        self.previousPanPoint = [sender locationInView:[UIWindow mainWindow]];
-        if (_tapHandler) {
-            _tapHandler(self);
+        weakSelf.previousPanPoint = [sender locationInView:[UIWindow mainWindow]];
+        if (weakSelf.tapHandler) {
+            weakSelf.tapHandler(weakSelf);
         }
     }];
     [self addGestureRecognizer:self.tap];
@@ -759,9 +766,10 @@
         _dismissBackgroundButton = [[UIButton alloc] init];
         _dismissBackgroundButton.backgroundColor = [UIColor blackColor];
         _dismissBackgroundButton.alpha = 0.0;
+        __weak typeof(self) weakSelf = self;
         [_dismissBackgroundButton bk_addEventHandler:^(id sender) {
-            [self dismissAnimated:YES completion:^{
-                [_dismissBackgroundButton removeFromSuperview];
+            [weakSelf dismissAnimated:YES completion:^{
+                [weakSelf.dismissBackgroundButton removeFromSuperview];
             }];
         } forControlEvents:UIControlEventTouchUpInside];
     }

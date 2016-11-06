@@ -20,9 +20,10 @@
     if (self) {
         [self setTitle:title forState:UIControlStateNormal];
         self.titleLabel.font = [UIFont fontWithName:@"Avenir-Light" size:12];
+        __weak typeof(self) weakSelf = self;
         [self bk_addEventHandler:^(id sender) {
             if (block) {
-                block(self);
+                block(weakSelf);
             }
         } forControlEvents:UIControlEventTouchUpInside];
         switch (type) {
