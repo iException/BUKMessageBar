@@ -294,6 +294,9 @@
             if (completion) {
                 completion();
             }
+            if (self.dismissHandler) {
+                self.dismissHandler(self);
+            }
             [self removeFromSuperview];
         }];
 

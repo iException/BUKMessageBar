@@ -39,6 +39,9 @@
     [bar setTapHandler:^(BUKMessageBar *bar) {
         [bar toggleAnimated:YES];
     }];
+    [bar setDismissHandler:^(BUKMessageBar *bar) {
+        NSLog(@"=============================dismissed");
+    }];
     [bar showAnimated:YES completion:nil];
 }
 

@@ -24,6 +24,7 @@
 		27442A2FA583D99FB06612526E5BF0C7 /* A2DynamicDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 067F6156795723F0429496E330ABE352 /* A2DynamicDelegate.m */; };
 		30E3875429AA0363F57ED1A6422219A5 /* BlocksKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790A35E02F9E6BACB12CE2C8BA001702 /* BlocksKit.framework */; };
 		32110CF217AE65F3307ACE54160FA19F /* NSDictionary+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094EB0D7D0BFD0270453B8FC6E56DCA /* NSDictionary+BlocksKit.m */; };
+		34C0FB8F1AA860C4331CDB50E451337C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */; };
 		363F710FA1E5CCE02539936B19BF0BD9 /* NSInvocation+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E31ED697D188760DEBF7493DF0E880 /* NSInvocation+BlocksKit.m */; };
 		368315A88683E1EB55E6E860A3F3F124 /* UIControl+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D2DDB5CE7137A28BD075CE8CF3E30 /* UIControl+BlocksKit.m */; };
 		37D071C7C330449CE80F1B6D4C55220A /* UIGestureRecognizer+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D5F35F21AF1D233C3DFFAF1915257D5 /* UIGestureRecognizer+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,10 +51,8 @@
 		60814EA8E5EB92196B65041CA7737A0B /* MZGoogleStyleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFDA31BFF10416AE2AA259B39935B2 /* MZGoogleStyleButton.m */; };
 		63680D220109E4346F48DBB19C2F83BC /* UIActionSheet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E0506D27F3F2CCEC9D53B9721D57BDEA /* UIActionSheet+BlocksKit.m */; };
 		6584CD6B2676D5FE13A0C4099D1C345B /* NSMutableArray+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32757BF9FD2345869A1C5232E729A496 /* NSMutableArray+BlocksKit.m */; };
-		66E9B34C4B89A9F54F3FE3A8F689819A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */; };
 		6D0FEE3776B8D71A2E3836D6677F7D1E /* NSDictionary+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C951FBAB9E3AE6F82382A92419E1FA8 /* NSDictionary+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F8E123174EE8C96C02E86D5BA8A49E7 /* BUKMessageBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C26295DF4930203B2F20E5C699BE77F8 /* BUKMessageBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71806C29066CCBDED2B8E29DC4015BFD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A1EB522F44D1D45425CA2AC6A42902 /* MessageUI.framework */; };
 		73354EA6A69120FADB2974F29E21F706 /* NSObject+A2BlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EAEF155D93AE6F610059E313C71B7B /* NSObject+A2BlockDelegate.m */; };
 		73A83BAFD9B4C14D53EDF03C7D591A26 /* NSMutableArray+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BB6A3172A22766DC993E9CEA973AA4B4 /* NSMutableArray+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B0BA1F09CFE421FA71DE390BB33D00B /* NSMutableDictionary+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A22970CEA1C961C52320F2089503B6 /* NSMutableDictionary+BlocksKit.m */; };
@@ -61,10 +60,12 @@
 		7EB67AE4061BFF27DF057EDA0D7B31DD /* NSURLConnection+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 29C7E7BE43C4C15CE54A7ACF14AFDBA8 /* NSURLConnection+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83A565D0C02FFE9F68F8F7D715379903 /* UIActionSheet+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2A249727D904ABA3C376588843F22B /* UIActionSheet+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		862C32092D52D4977E84169DAF02710A /* NSMutableIndexSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F319D2D21BDD864755F5E923D60BD4B /* NSMutableIndexSet+BlocksKit.m */; };
+		8C61E2A8AE70A783C01116F10F5A4EA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */; };
 		8E69D9C8A28057EC4448916082B6A5DF /* BUKMessageBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C8238A113C0778BFE0F7E823C46CE1 /* BUKMessageBarButton.m */; };
 		8E8BF58AE198DC67736F693BE04C9B8D /* NSMutableSet+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F33A96AF38707584439D8ABDBF44AE7 /* NSMutableSet+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8EE83CD44ACA9A89863061D1F50BD1AB /* UIColor+bukmbmhex.h in Headers */ = {isa = PBXBuildFile; fileRef = 297684452887C150A6D0597DC016BEDC /* UIColor+bukmbmhex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F59C0F9DDAB1101104E9F9B888F2308 /* NSSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C0D631380EF6223647607BBE1226DA /* NSSet+BlocksKit.m */; };
+		904EF2214C8655DFEC705F090E5250A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */; };
 		9A5A3E650C7AC6633E99011F6CB0AE93 /* UITextField+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 227237258E97AF24414095297FD5E4B2 /* UITextField+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BFD5CAFC266BFDDB263B166892066CA /* MFMailComposeViewController+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 053DAADB352FD452755C447A333EBB30 /* MFMailComposeViewController+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E1BA9F4428C178DD63170284E4D9B85 /* NSOrderedSet+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AC8A69D005E1BD0A7D09ECF126B91C /* NSOrderedSet+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,24 +73,23 @@
 		A714D6408DE6CD4898AA6C6C7C91DF24 /* UIPopoverController+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 94BC1ACE72190597B769266414A58A66 /* UIPopoverController+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A797CA9550754C448FC9CAC5C3079AF8 /* NSTimer+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF0A2E34C92EDE0CB13E11BF47FF80 /* NSTimer+BlocksKit.m */; };
 		AA9AA509C35A93F7CA042224EEC3F5B8 /* NSObject+A2BlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FA46DDAC50F424B43645B083CE6AB835 /* NSObject+A2BlockDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B182063873076876EDC7C18FEC5DA3B4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9193B5E24184ABD48D927313CF9315 /* MessageUI.framework */; };
 		B2A3827E16BC8D56C7FAFE3D2FB3704A /* NSMutableIndexSet+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 680CB77CEB699E16648B177E813351CF /* NSMutableIndexSet+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B3C879663638C60FB324834DFB658128 /* BUKMessageBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 96EFE06754B7D637A7CEE6BBDEF8859D /* BUKMessageBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B98763AF36E677CB8BF28D67AFADB212 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */; };
 		BEA92C834E1EA42942D4D15C83AC47FC /* NSCache+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DF235896E49288DADE4F06A23D6FB6 /* NSCache+BlocksKit.m */; };
 		BF7166875C5066C5B2E222F0881E6E3D /* BlocksKit+MessageUI.h in Headers */ = {isa = PBXBuildFile; fileRef = FA2D39B5F8229378185CBCB0B2E75062 /* BlocksKit+MessageUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C21234DECE27BCB40F5F97DEAF7E2197 /* NSObject+BKAssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 267580DF23957CD863FBE0DC36EE3F5C /* NSObject+BKAssociatedObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24B8C72AF2178441AA7865E2DAE2812 /* UIBarButtonItem+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B195DB8092B8C601578BEA0C1AA9F430 /* UIBarButtonItem+BlocksKit.m */; };
 		C6E4C0B65B9AF1FD36B40A2A33768C60 /* NSIndexSet+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CDE7708C48F1C73E895C150114461DD /* NSIndexSet+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C860FE376D6C2929842CC43638384D24 /* NSObject+A2DynamicDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4099AD9C0A1BE979EFE49F9EB2F72225 /* NSObject+A2DynamicDelegate.m */; };
-		C9C05BE467CA772FE6838DD8AEE6536F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */; };
 		CB34A0B38B2C4E234BF3F4126B42A75B /* UIImagePickerController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C05E47A6DFD14C1C4FE2D90F7072819 /* UIImagePickerController+BlocksKit.m */; };
 		CD2C010ABE533DCB16DFD4C8300CF2AD /* NSObject+BKBlockExecution.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2C1E07D67F223590A6CD9EDE9AEBD7 /* NSObject+BKBlockExecution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0D57970F5221BBCA176C9EC07D03398 /* BUKMessageBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD668E11A470A48357CB832CB6BAEE87 /* BUKMessageBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D572278B7104AAE294F632DCB5C93228 /* NSInvocation+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A30CB097966BB198A9BF98712290A5F5 /* NSInvocation+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6B7F3EDB34A00B79C4EDE7C7A1CEE29 /* Pods-BUKMessageBar_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29EF221CA8F24ADA8064AA55807EACA7 /* Pods-BUKMessageBar_Example-dummy.m */; };
 		DC61C76F6B24DCF1EE361363B8FDD32A /* NSObject+BKBlockObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0333B9696142DDFF0036754C82DDA4EA /* NSObject+BKBlockObservation.m */; };
-		DE1ABD0D06ECF3B0E48159B0361016E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */; };
 		E13CF6FBEDEB730A0B6E67B7118132C5 /* NSArray+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 31617BBD62045EC9ED5CE9BA148C5B96 /* NSArray+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E436697E391C0C95662D248372C4F047 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */; };
 		E510057C004EC5852E717AD2B4FC19CC /* NSTimer+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A450A8C83BDF0BFF0147346C51E531A8 /* NSTimer+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE2FD1FBFA0276A88D055F8B8960809A /* NSMutableSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E46A9DD87B817B790AA73FDF3811A1 /* NSMutableSet+BlocksKit.m */; };
 		F0999218833409F2148840A39B200B2E /* UIWebView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A20367BC8BD77FB496B8EEBD43F81282 /* UIWebView+BlocksKit.m */; };
@@ -155,7 +155,6 @@
 		2DEF0A2E34C92EDE0CB13E11BF47FF80 /* NSTimer+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BlocksKit.m"; path = "BlocksKit/Core/NSTimer+BlocksKit.m"; sourceTree = "<group>"; };
 		31617BBD62045EC9ED5CE9BA148C5B96 /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+BlocksKit.h"; path = "BlocksKit/Core/NSArray+BlocksKit.h"; sourceTree = "<group>"; };
 		32757BF9FD2345869A1C5232E729A496 /* NSMutableArray+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+BlocksKit.m"; path = "BlocksKit/Core/NSMutableArray+BlocksKit.m"; sourceTree = "<group>"; };
-		3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3C4CF7A5B7BDD8E4CA5B71F1DB686444 /* Pods_BUKMessageBar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BUKMessageBar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C951FBAB9E3AE6F82382A92419E1FA8 /* NSDictionary+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+BlocksKit.h"; path = "BlocksKit/Core/NSDictionary+BlocksKit.h"; sourceTree = "<group>"; };
 		3E5DCE2142CE798DB27B2E7AF2535BF8 /* BUKMessageBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BUKMessageBar.xcconfig; sourceTree = "<group>"; };
@@ -169,8 +168,8 @@
 		493111608505F68274294415C2849EBB /* NSObject+BKBlockObservation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+BKBlockObservation.h"; path = "BlocksKit/Core/NSObject+BKBlockObservation.h"; sourceTree = "<group>"; };
 		497D830C3AF7830BF99F3EC344E11669 /* BUKMessageBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BUKMessageBar.m; sourceTree = "<group>"; };
 		4D5F35F21AF1D233C3DFFAF1915257D5 /* UIGestureRecognizer+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+BlocksKit.h"; path = "BlocksKit/UIKit/UIGestureRecognizer+BlocksKit.h"; sourceTree = "<group>"; };
+		4D9193B5E24184ABD48D927313CF9315 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		5069198AEA7AAA2F277EF6D7AA8567E2 /* UIColor+bukmbmhex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+bukmbmhex.m"; sourceTree = "<group>"; };
-		56A1EB522F44D1D45425CA2AC6A42902 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		5763929420940F00E1E0F71DC0E60611 /* A2BlockInvocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = A2BlockInvocation.h; path = BlocksKit/DynamicDelegate/A2BlockInvocation.h; sourceTree = "<group>"; };
 		580B43E2765596101FCA7A99C41803E9 /* NSObject+A2DynamicDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+A2DynamicDelegate.h"; path = "BlocksKit/DynamicDelegate/NSObject+A2DynamicDelegate.h"; sourceTree = "<group>"; };
 		59E97009F9800520524ECF33D7678B44 /* BlocksKit+UIKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BlocksKit+UIKit.h"; path = "BlocksKit/BlocksKit+UIKit.h"; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		A20367BC8BD77FB496B8EEBD43F81282 /* UIWebView+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+BlocksKit.m"; path = "BlocksKit/UIKit/UIWebView+BlocksKit.m"; sourceTree = "<group>"; };
 		A30CB097966BB198A9BF98712290A5F5 /* NSInvocation+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+BlocksKit.h"; path = "BlocksKit/Core/NSInvocation+BlocksKit.h"; sourceTree = "<group>"; };
 		A450A8C83BDF0BFF0147346C51E531A8 /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BlocksKit.h"; path = "BlocksKit/Core/NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
+		A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A7A57C780AA5DE58DE33B7F8B6785657 /* Pods-BUKMessageBar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BUKMessageBar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		A8B2BE719CD0C5C0A26D4B049C93E0B2 /* Pods-BUKMessageBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BUKMessageBar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A9FD08F5CF4EFB8B12CC9A7A672D4A80 /* Pods-BUKMessageBar_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BUKMessageBar_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E9B34C4B89A9F54F3FE3A8F689819A /* Foundation.framework in Frameworks */,
+				34C0FB8F1AA860C4331CDB50E451337C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +259,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C05BE467CA772FE6838DD8AEE6536F /* Foundation.framework in Frameworks */,
-				71806C29066CCBDED2B8E29DC4015BFD /* MessageUI.framework in Frameworks */,
+				904EF2214C8655DFEC705F090E5250A1 /* Foundation.framework in Frameworks */,
+				B182063873076876EDC7C18FEC5DA3B4 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E3875429AA0363F57ED1A6422219A5 /* BlocksKit.framework in Frameworks */,
-				DE1ABD0D06ECF3B0E48159B0361016E8 /* Foundation.framework in Frameworks */,
+				8C61E2A8AE70A783C01116F10F5A4EA4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E436697E391C0C95662D248372C4F047 /* Foundation.framework in Frameworks */,
+				B98763AF36E677CB8BF28D67AFADB212 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +352,15 @@
 				6C1052D6D8E205D8FC181DB44105C767 /* Pods_BUKMessageBar_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		76728C45D5A641F7CF45D40294AEB944 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A6803FC9F14031448B85174CF28C4DA4 /* Foundation.framework */,
+				4D9193B5E24184ABD48D927313CF9315 /* MessageUI.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		7B60D6B3830D468AE90DB1280CDF7F2E /* Pods-BUKMessageBar_Example */ = {
@@ -499,20 +508,11 @@
 			path = BlocksKit;
 			sourceTree = "<group>";
 		};
-		A7880553C922FADA57E3C20011EAA18A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3BF6FC59ED85C6460FCFB45DC4C7C6A3 /* Foundation.framework */,
-				56A1EB522F44D1D45425CA2AC6A42902 /* MessageUI.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		B6D553FD14A57C2460A5D07A977A6A62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				790A35E02F9E6BACB12CE2C8BA001702 /* BlocksKit.framework */,
-				A7880553C922FADA57E3C20011EAA18A /* iOS */,
+				76728C45D5A641F7CF45D40294AEB944 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -715,24 +715,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					8834CB1D939553E6B1A63C4A30082B52 = {
-						DevelopmentTeam = 74UX6D4SCA;
-						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
-					};
-					8B48B39C26FFAE3448B495AA342CE1E5 = {
-						DevelopmentTeam = 74UX6D4SCA;
-						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
-					};
-					993873D0B5A72018C078B68756896F1F = {
-						DevelopmentTeam = 74UX6D4SCA;
-						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
-					};
-					EF3F90E37C55D38C287BEB374B1D7AD5 = {
-						DevelopmentTeam = 74UX6D4SCA;
-						DevelopmentTeamName = "Shanghai Kijiji Information Technology Co., Ltd.";
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -848,140 +830,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0081770C544FAC98F43EA07741BB8FDB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9310F4706EACDFC855A9EE32A9C48A63 /* Pods-BUKMessageBar_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BUKMessageBar_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-BUKMessageBar_Tests/Pods-BUKMessageBar_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_BUKMessageBar_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		051FD14CC9CCAC9DA78A49C862FE8980 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E5DCE2142CE798DB27B2E7AF2535BF8 /* BUKMessageBar.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BUKMessageBar/BUKMessageBar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BUKMessageBar/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BUKMessageBar/BUKMessageBar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = BUKMessageBar;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		402A43C40B4C814354DDC64ED1805F94 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E5DCE2142CE798DB27B2E7AF2535BF8 /* BUKMessageBar.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BUKMessageBar/BUKMessageBar-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BUKMessageBar/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BUKMessageBar/BUKMessageBar.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = BUKMessageBar;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		42A8B7DC6F71E2761AD380E2095DB667 /* Debug */ = {
+		39DC540599C915B0400B92F4401E4C0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F38B3E0621EFFE0C22EFD812D1F9CBDF /* BlocksKit.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -1006,40 +861,13 @@
 			};
 			name = Debug;
 		};
-		4D863DC3F7A644899662CCA85F992716 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F38B3E0621EFFE0C22EFD812D1F9CBDF /* BlocksKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BlocksKit/BlocksKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BlocksKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BlocksKit/BlocksKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = BlocksKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		80FF402FC159F3DE6DA478392EE564DB /* Debug */ = {
+		39F1F14DCC55FA2BD67B040EDBCB70C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA6228FDA14844D30B7035365AA185CE /* Pods-BUKMessageBar_Example.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -1068,11 +896,75 @@
 			};
 			name = Debug;
 		};
-		BF7AC751F4B071B6EE0F09363DB5A3ED /* Debug */ = {
+		79276AFB89475990DE74896573B7487B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E5DCE2142CE798DB27B2E7AF2535BF8 /* BUKMessageBar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BUKMessageBar/BUKMessageBar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BUKMessageBar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BUKMessageBar/BUKMessageBar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BUKMessageBar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7AC19237F6CCF79DE5F9462749DE15CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E5DCE2142CE798DB27B2E7AF2535BF8 /* BUKMessageBar.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BUKMessageBar/BUKMessageBar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BUKMessageBar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BUKMessageBar/BUKMessageBar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BUKMessageBar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F039FC7D7A626FBDCFF3A13234F8F7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1677CA8AED27B49C641E4A67ACD02F89 /* Pods-BUKMessageBar_Tests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -1101,7 +993,7 @@
 			};
 			name = Debug;
 		};
-		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1119,6 +1011,113 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95DD7CA45C17EA79CB3656917BD25070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F38B3E0621EFFE0C22EFD812D1F9CBDF /* BlocksKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BlocksKit/BlocksKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlocksKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BlocksKit/BlocksKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BlocksKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BEB00401086AF9D0E9D0FEECBA1CBC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9310F4706EACDFC855A9EE32A9C48A63 /* Pods-BUKMessageBar_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BUKMessageBar_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BUKMessageBar_Tests/Pods-BUKMessageBar_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BUKMessageBar_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1138,16 +1137,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		F3388D314054CF028CEB68D77571C807 /* Release */ = {
+		D93C1D0F4A5382F8B2D534BCB5510AEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8B2BE719CD0C5C0A26D4B049C93E0B2 /* Pods-BUKMessageBar_Example.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -1182,8 +1184,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
-				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
+				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1191,8 +1193,8 @@
 		5EE588FC3F300F90950275706CC6A66B /* Build configuration list for PBXNativeTarget "BlocksKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				42A8B7DC6F71E2761AD380E2095DB667 /* Debug */,
-				4D863DC3F7A644899662CCA85F992716 /* Release */,
+				39DC540599C915B0400B92F4401E4C0B /* Debug */,
+				95DD7CA45C17EA79CB3656917BD25070 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1200,8 +1202,8 @@
 		AF6B59F5FD63ACB153D731568663B186 /* Build configuration list for PBXNativeTarget "Pods-BUKMessageBar_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BF7AC751F4B071B6EE0F09363DB5A3ED /* Debug */,
-				0081770C544FAC98F43EA07741BB8FDB /* Release */,
+				7F039FC7D7A626FBDCFF3A13234F8F7E /* Debug */,
+				9BEB00401086AF9D0E9D0FEECBA1CBC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1209,8 +1211,8 @@
 		C24D1933430C2B17A9AAD0F4C9CB105E /* Build configuration list for PBXNativeTarget "BUKMessageBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				051FD14CC9CCAC9DA78A49C862FE8980 /* Debug */,
-				402A43C40B4C814354DDC64ED1805F94 /* Release */,
+				7AC19237F6CCF79DE5F9462749DE15CB /* Debug */,
+				79276AFB89475990DE74896573B7487B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1218,8 +1220,8 @@
 		EFD259EBDB3CC08DFC7B75BF6FC9C85F /* Build configuration list for PBXNativeTarget "Pods-BUKMessageBar_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				80FF402FC159F3DE6DA478392EE564DB /* Debug */,
-				F3388D314054CF028CEB68D77571C807 /* Release */,
+				39F1F14DCC55FA2BD67B040EDBCB70C3 /* Debug */,
+				D93C1D0F4A5382F8B2D534BCB5510AEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

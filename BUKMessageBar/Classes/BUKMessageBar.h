@@ -33,7 +33,8 @@ typedef NS_ENUM(NSInteger, BUKMessageBarAnimationDirection) {
 @property (nonatomic, assign) BUKMessageBarType type;
 @property (nonatomic, assign) BUKMessageBarAnimationDirection animationDirection;
 @property (nonatomic, strong) NSArray<BUKMessageBarButton *> *buttons;
-@property (nonatomic, strong) void (^tapHandler)(BUKMessageBar *bar);
+@property (nonatomic, copy) void (^tapHandler)(BUKMessageBar *bar);
+@property (nonatomic, copy) void (^dismissHandler)(BUKMessageBar *bar);
 @property (nonatomic, assign) BOOL expanded;
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, assign) BOOL enableDismissMask;
